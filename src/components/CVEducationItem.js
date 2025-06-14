@@ -33,18 +33,18 @@ function CVEducationItem ({id, degree , yearCompletition , institution , updateE
         <div>
             {isEditing ? (
                 <>
-                    <input type='text' value={tempData.degree} name='degree' onChange={handleChange}></input>
-                    <input type='text' value={tempData.yearCompletition} name='yearCompletition' onChange={handleChange}></input>
-                    <input type='text' value={tempData.institution} name='institution' onChange={handleChange}></input>
-                    <button onClick={handleConfirm}>Confirm</button>
-                    <button onClick={handleCancel}>Cancel</button>
+                    <input type='text' value={tempData.degree} name='degree' onChange={handleChange}></input><br></br>
+                    <input type='text' value={tempData.yearCompletition} name='yearCompletition' onChange={handleChange}></input><br></br>
+                    <input type='text' value={tempData.institution} name='institution' onChange={handleChange}></input><br></br>
+                    <button className='btn-embeed-edit' onClick={handleConfirm}>Confirm</button>
+                    <button className='btn-embeed-delete' onClick={handleCancel}>Cancel</button>
                 </>
             ) : ( <>
-                <p><span>{`${degree}`}</span> - <span>{`${yearCompletition}`}</span></p>
+                <p className='m-0 pt-1'><span className='text-sub-head'>{`${degree}`}</span> - <span>{`${yearCompletition}`}</span></p>
                 <p>{`${institution}`}</p>
 
-                <button onClick={handleEdit}>Edit</button>
-                <button onClick={handleDeletion}>Delete</button>
+                <button className='btn-embeed-edit' onClick={handleEdit}>Edit</button>
+                <button className='btn-embeed-delete' onClick={handleDeletion}>Delete</button>
             </>
             )}
         </div>

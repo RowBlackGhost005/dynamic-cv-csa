@@ -132,7 +132,7 @@ function DynamicCV(){
 
 
     return(
-        <div id='dynamicCVContainer' className='column-container-2'>
+        <div id='dynamicCVContainer' className='main-cv-container mx-auto'>
             <CVForm 
                 cvData={cvData} 
                 handleChange={handleCVFormChange}
@@ -140,6 +140,8 @@ function DynamicCV(){
                 addEducation={handleAddEducation}
                 saveCVData={saveCVData}
                 resetCVData={resetCVData}/>
+
+            <hr className='divider-dynamic'></hr>
 
             <CVPreview 
                 cvData={cvData}
@@ -152,7 +154,7 @@ function DynamicCV(){
                 deleteExperiece={deleteExperience}
                 updateExperience={updateExperience}
                 experienceEditId={experienceEditingId}
-                experienceSetEditingId={setExperienceEditingId}/>;
+                experienceSetEditingId={setExperienceEditingId}/>
         </div>
     );
 };

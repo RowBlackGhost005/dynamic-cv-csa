@@ -45,20 +45,20 @@ function CVExperienceItem({id , companyName , jobTitle , duration , responsabili
         <div>
             {isEditing ? (
                 <>
-                    <input type='text' value={tempData.companyName} name='companyName' onChange={handleChange}></input>
-                    <input type='text' value={tempData.jobTitle} name='jobTitle' onChange={handleChange}></input>
-                    <input type='text' value={tempData.duration} name='duration' onChange={handleChange}></input>
-                    <input type='text' value={tempData.responsabilities} name='responsabilities' onChange={handleChange}></input>
-                    <button onClick={handleConfirm}>Confirm</button>
-                    <button onClick={handleCancel}>Cancel</button>
+                    <input type='text' value={tempData.companyName} name='companyName' onChange={handleChange}></input><br></br>
+                    <input type='text' value={tempData.jobTitle} name='jobTitle' onChange={handleChange}></input><br></br>
+                    <input type='text' value={tempData.duration} name='duration' onChange={handleChange}></input><br></br>
+                    <textarea className='form-textarea' value={tempData.responsabilities} name='responsabilities' onChange={handleChange} cols={25} rows={5}></textarea><br></br>
+                    <button className='btn-embeed-edit' onClick={handleConfirm}>Confirm</button>
+                    <button className='btn-embeed-delete' onClick={handleCancel}>Cancel</button>
                 </>
             ) : (
                 <>
-                    <p>{`${companyName}`}</p>
-                    <p><span>{`${jobTitle}`} | {`${duration}`} </span></p>
+                    <p className='text-sub-head m-0 pt-1'>{`${companyName}`}</p>
+                    <p className='m-0'><span className='text-italic'>{`${jobTitle}`} | {`${duration}`} </span></p>
                     <p>{`${responsabilities}`}</p>
-                    <button onClick={handleEdit}>Edit</button>
-                    <button onClick={handleDeletion}>Delete</button>
+                    <button className='btn-embeed-edit' onClick={handleEdit}>Edit</button>
+                    <button className='btn-embeed-delete' onClick={handleDeletion}>Delete</button>
                 </>
             )}
         </div>

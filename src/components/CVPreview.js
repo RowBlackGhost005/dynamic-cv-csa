@@ -18,15 +18,18 @@ function CVPreview({
 }){
 
     return(
-        <div>
-            <p className='text-center'>{cvData.name}</p>
+        <div className=''>
+            <p className='text-center text-name'>{cvData.name}</p>
 
-            <div className='text-center' id='personalInformation'>
+            <div className='text-center ' id='personalInformation'>
                 <p><span>{`${cvData.email} | ${cvData.phone} | ${cvData.address}`}</span></p>
             </div>
 
+            <hr></hr>
+
             <div id='educationInformation'>
-                <p>Education</p>
+                <p className='text-sub-head'>Education</p>
+                <hr></hr>
                 {educationData.map((education , index) => (
                     <CVEducationItem key={education.id} 
                     id={education.id} 
@@ -41,7 +44,8 @@ function CVPreview({
             </div>
 
             <div id='jobExperienceInformation'>
-                <p>Job Experience</p>
+                <p className='text-sub-head'>Job Experience</p>
+                <hr></hr>
                 {experienceData.map((experience , index) => (
                     <CVExperienceItem  key={experience.id}
                     id={experience.id}
@@ -58,7 +62,8 @@ function CVPreview({
             </div>
 
             <div id='skillsInformation'>
-                <p>Skills:</p>
+                <p className='text-sub-head'>Skills:</p>
+                <hr></hr>
                 <p>{`${cvData.skills}`}</p>
             </div>
         </div>

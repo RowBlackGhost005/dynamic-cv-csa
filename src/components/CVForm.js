@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {useState} from 'react';
-
 function CVForm({cvData , handleChange , addExperience , addEducation , saveCVData , resetCVData}){
 
     const [inputsErrors , setInputErrors] = React.useState({
@@ -55,92 +53,93 @@ function CVForm({cvData , handleChange , addExperience , addEducation , saveCVDa
     }
 
     return(
-        <div id='cvFormContainer'>
+        <div className='px-2' id='cvFormContainer'>
             <div id='personalInformationSection'>
-                <div>
-                    <label htmlFor='name'>Name:</label>
-                    <input type='text' placeholder='John Doe' name='name' value={cvData.name} onChange={handleChange} onBlur={handleBlurText}></input>
-                    {inputsErrors.name && <p>Enter your name.</p>}
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='name'>Name:</label>
+                    <input className='from-input' type='text' placeholder='John Doe' name='name' value={cvData.name} onChange={handleChange} onBlur={handleBlurText}></input>
+                    {inputsErrors.name && <p className='error-text'>Enter your name.</p>}
                 </div>
 
-                <div>
-                    <label htmlFor='email'>Email:</label>
-                    <input type='email' placeholder='yourmail@mail.com' name='email' value={cvData.email} onChange={handleChange} onBlur={handleBlurEmail}></input>
-                    {inputsErrors.email && <p>Enter a valid email.</p>}
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='email'>Email:</label>
+                    <input className='from-input' type='email' placeholder='yourmail@mail.com' name='email' value={cvData.email} onChange={handleChange} onBlur={handleBlurEmail}></input>
+                    {inputsErrors.email && <p className='error-text'>Enter a valid email.</p>}
                 </div>
 
-                <div>
-                    <label htmlFor='phoneNumber'>Phone:</label>
-                    <input type='text' placeholder='+01 555 2354 523' name='phone' value={cvData.phone} onChange={handleChange} onBlur={handleBlurText}></input>
-                    {inputsErrors.phone && <p>Enter your phone number.</p>}
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='phoneNumber'>Phone:</label>
+                    <input className='from-input' type='text' placeholder='+01 555 2354 523' name='phone' value={cvData.phone} onChange={handleChange} onBlur={handleBlurText}></input>
+                    {inputsErrors.phone && <p className='error-text'>Enter your phone number.</p>}
                 </div>
 
-                <div>
-                    <label htmlFor='address'>Address:</label>
-                    <input type='text' placeholder='Santa Monica, LA. UU.EE.' name='address' value={cvData.address} onChange={handleChange} onBlur={handleBlurText}></input>
-                    {inputsErrors.address && <p>Enter your address.</p>}
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='address'>Address:</label>
+                    <input className='from-input' type='text' placeholder='Santa Monica, LA. UU.EE.' name='address' value={cvData.address} onChange={handleChange} onBlur={handleBlurText}></input>
+                    {inputsErrors.address && <p className='error-text'>Enter your address.</p>}
                 </div>                
             </div>
 
             <hr></hr>
 
             <div id='educationInformationSection'>
-                <div>
-                    <label htmlFor='degree'>Degree:</label>
-                    <input type='text' placeholder='Software Engineer' name='degree' value={cvData.degree} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='degree'>Degree:</label>
+                    <input className='from-input' type='text' placeholder='Software Engineer' name='degree' value={cvData.degree} onChange={handleChange}></input>
                 </div>
 
-                <div>
-                    <label htmlFor='institution'>Institution:</label>
-                    <input type='text' placeholder='MIT' name='institution' value={cvData.institution} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='institution'>Institution:</label>
+                    <input className='from-input' type='text' placeholder='MIT' name='institution' value={cvData.institution} onChange={handleChange}></input>
                 </div>
 
-                <div>
-                    <label htmlFor='yearCompletition'>Year completition:</label>
-                    <input type='text' placeholder='2020' name='yearCompletition' value={cvData.yearCompletition} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='yearCompletition'>Year completition:</label>
+                    <input className='from-input' type='text' placeholder='2020' name='yearCompletition' value={cvData.yearCompletition} onChange={handleChange}></input>
                 </div>
 
-                <button onClick={handleAddEducation}>Add Education</button>
+                <button className='btn-add text-light' onClick={handleAddEducation}>Add Education</button>
             </div>
 
             <hr></hr>
 
             <div id='experienceInformationSection'>
-                <div>
-                    <label htmlFor='jobTitle'>Job Title:</label>
-                    <input type='text' placeholder='Software Engineer' name='jobTitle' value={cvData.jobTitle} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='jobTitle'>Job Title:</label>
+                    <input className='from-input' type='text' placeholder='Software Engineer' name='jobTitle' value={cvData.jobTitle} onChange={handleChange}></input>
                 </div>
 
-                <div>
-                    <label htmlFor='companyName'>Company Name:</label>
-                    <input type='text' placeholder='Company Name' name='companyName' value={cvData.companyName} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='companyName'>Company Name:</label>
+                    <input className='from-input' type='text' placeholder='Company Name' name='companyName' value={cvData.companyName} onChange={handleChange}></input>
                 </div>
 
-                <div>
-                    <label htmlFor='duration'>Duration:</label>
-                    <input type='text' placeholder='1 year 5 months' name='duration' value={cvData.duration} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='duration'>Duration:</label>
+                    <input className='from-input' type='text' placeholder='1 year 5 months' name='duration' value={cvData.duration} onChange={handleChange}></input>
                 </div>
 
-                <div>
-                    <label htmlFor='responsabilities'>Responsabilities:</label>
-                    <input type='text' placeholder='Develop the backend. . .' name='responsabilities' value={cvData.responsabilities} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='responsabilities'>Responsabilities:</label>
+                    <input className='from-input' type='text' placeholder='Develop the backend. . .' name='responsabilities' value={cvData.responsabilities} onChange={handleChange}></input>
                 </div>
 
-                <button onClick={handleAddExperience}>Add Experience</button>
+                <button className='btn-add text-light' onClick={handleAddExperience}>Add Experience</button>
             </div>
 
             <hr></hr>
 
             <div>
-                <div>
-                    <label htmlFor='skills'>Skills:</label>
-                    <input type='text' placeholder='Communication' name='skills' value={cvData.skills} onChange={handleChange}></input>
+                <div className='form-container'>
+                    <label className='form-label' htmlFor='skills'>Skills:</label>
+                    <textarea className='form-textarea' placeholder='Communication' name='skills' value={cvData.skills} onChange={handleChange} cols={10} rows={10}></textarea>
                 </div>
+                    
             </div>
 
-            <div>
-                <button onClick={saveCVData}>Save</button>
-                <button onClick={resetCVData}>Reset</button>
+            <div className='flex-row '>
+                <button className='btn-confirm text-light mx-auto' onClick={saveCVData}>Save</button>
+                <button className='btn-cancel text-light mx-auto' onClick={resetCVData}>Reset</button>
             </div>
         </div>
     );
