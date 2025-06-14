@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
+import './styles.css'
+
+import DynamicCV from './components/DynamicCV'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <React.Fragment>
+      <header className='py-1 text-center'>
+        <h1>Dynamic Curriculum Vitae</h1>
       </header>
-    </div>
+
+      <main>
+        <DynamicCV />
+      </main>
+
+      <footer></footer>
+    </React.Fragment>
   );
 }
 
