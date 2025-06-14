@@ -1,12 +1,16 @@
 # Dynamic CV Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a small web app that lets you create a basic CV / Resume based on the Standford Format.
 
-## Available Scripts
+# Requirements
 
-In the project directory, you can run:
+1. Node
 
-### `npm start`
+# How to Run
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Download the source code.
+2. Go into the projects folder.
+3. Open the terminal and type `npm install`.
+4. Once all installed, type `npm start`.
+
+This runs the app in development mode and it will be available at: http://localhost:3000
