@@ -2,6 +2,7 @@ import React from 'react';
 
 function CVForm({cvData , handleChange , addExperience , addEducation , saveCVData , resetCVData}){
 
+    /** Manages weather a input is in an error state*/
     const [inputsErrors , setInputErrors] = React.useState({
         name: false,
         email: false,
@@ -17,6 +18,7 @@ function CVForm({cvData , handleChange , addExperience , addEducation , saveCVDa
         skills: false
     });
 
+    /** Detects if the email is valid once the user gets out of it*/
     const handleBlurEmail = (event) => {
         if(!event.target.value.match("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")){
             setInputErrors({...inputsErrors , email: true});
@@ -25,6 +27,7 @@ function CVForm({cvData , handleChange , addExperience , addEducation , saveCVDa
         }
     }
 
+    /** Detects if a field is left empty after the user gets out of it*/
     const handleBlurText = (event) => {
         if(event.target.value === ""){
             setInputErrors({...inputsErrors , [event.target.name]: true});
@@ -33,6 +36,7 @@ function CVForm({cvData , handleChange , addExperience , addEducation , saveCVDa
         }
     }
 
+    /** Manages the creation of a new experience item*/
     const handleAddExperience = () => {
 
         if(!(inputsErrors.jobTitle && inputsErrors.companyName && inputsErrors.companyName && inputsErrors.duration && inputsErrors.responsabilities) &&
@@ -44,6 +48,7 @@ function CVForm({cvData , handleChange , addExperience , addEducation , saveCVDa
         }
     }
 
+    /** Manages the creation of a new education item*/
     const handleAddEducation = () => {
         if(cvData.institution !== "" && cvData.institution !== "" && cvData.yearCompletition !== ""){
             addEducation();

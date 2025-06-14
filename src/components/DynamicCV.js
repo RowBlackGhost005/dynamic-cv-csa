@@ -5,8 +5,7 @@ import CVPreview from './CVPreview';
 
 function DynamicCV(){
 
-
-
+    /* Manages the current data that sits in the form */
     const [cvData , setCvData] = React.useState(() => {
 
         const cvData = {
@@ -30,30 +29,43 @@ function DynamicCV(){
 
     });
 
+    /* 
+        Manages the array of 'experience' items that sits in the preview once the user appends it.
+        It attemps to load the data from the local storage if there was a session before.
+    */
     const [experienceData , setExperienceData] = React.useState( () => {
         const savedData = localStorage.getItem("CVExperience");
         return savedData ? JSON.parse(savedData) : [];
     });
 
+    /* 
+        Manages the array of 'education' items that sits in the preview once the user appends it.
+        It attemps to load the data from the local storage if there was a session before
+    */
     const [educationData , setEducationData] = React.useState(() => {
         const saveData = localStorage.getItem("CVEducation");
         return saveData ? JSON.parse(saveData) : [];
     });
 
+    /* Manages the counter of experience items created to use as keys for react optimized re-render*/
     const [experienceId , setExperienceId] = React.useState(() => {
         const saveData = localStorage.getItem("CVExperienceId");
         return saveData ? JSON.parse(saveData) : 1;
     });
 
+    /* Manages the counter of education items created to use as keys for react optimized re-render*/
     const [educationId , setEducationId] = React.useState(() => {
         const saveData = localStorage.getItem("CVEducationId");
         return saveData ? JSON.parse(saveData) : 1;
     });
     
+    /* Manages which education item is being edited based on its ID*/
     const [educationEditingId , setEducationEditingId] = React.useState(null);
 
+    /* Manages which experience item is being edited based on its ID*/
     const [experienceEditingId , setExperienceEditingId] = React.useState(null);
 
+    /* Gets the current data in experience and appends it into the experience array*/
     const handleAddExperience = () => {
         let experience = {
             id: experienceId,
@@ -70,6 +82,7 @@ function DynamicCV(){
         setExperienceData([...experienceData , experience]);
     };
 
+    /* Gets the current data in education and appends it into the education array*/
     const handleAddEducation = () => {
         let education = {
             id: educationId,
@@ -85,10 +98,12 @@ function DynamicCV(){
         setEducationData([...educationData , education])
     }
 
+    /* Manages real time modification of each field*/
     const handleCVFormChange = (event) => {
         setCvData({...cvData , [event.target.name]: event.target.value })
     };
 
+    /* Updates the data of the edited education item based on its id*/
     const updateEducation = (id , data) => {
         setEducationData((prev) => 
             prev.map((education) =>
@@ -97,12 +112,14 @@ function DynamicCV(){
         );
     };
 
+    /* Deletes the education data based on its id*/
     const deleteEducation = (id) => {
         setEducationData((prev) =>
             prev.filter(education => education.id !== id)
         );
     };
 
+    /* Updates the data of the edited experience based on its id*/
     const updateExperience = (id , data) => {
         setExperienceData((prev) =>
             prev.map((experience) =>
@@ -111,12 +128,14 @@ function DynamicCV(){
         );
     };
 
+    /* Deletes the education experience based on its id*/
     const deleteExperience = (id) => {
         setExperienceData((prev) => 
             prev.filter(experience => experience.id !== id)
         );
     }
 
+    /* Stores in local storage all values needed for this dynamic cv to function when returning into the page*/
     const saveCVData = () => {
         localStorage.setItem("CVData" , JSON.stringify(cvData));
         localStorage.setItem("CVEducation" , JSON.stringify(educationData));
@@ -126,8 +145,27 @@ function DynamicCV(){
         
     }
 
+    /* Resets the current data that sits in the CV but does not resets data stored in local storage*/
     const resetCVData = () => {
+        const resetData = {
+            name: "",
+            email: "",
+            phone: "",
+            address: "",
+            degree: "",
+            institution: "",
+            yearCompletition: "",
+            jobTitle: "",
+            companyName: "",
+            duration: "",
+            responsabilities: "",
+            skills: ""
+        }
 
+        setEducationData([]);
+        setExperienceData([]);
+
+        setCvData({...cvData , ...resetData});
     }
 
 

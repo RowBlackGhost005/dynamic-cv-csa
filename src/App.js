@@ -12,7 +12,7 @@ function App() {
         <h1>Dynamic Curriculum Vitae</h1>
       </header>
 
-      <main>
+      <main className='py-1'>
         <DynamicCV />
       </main>
 
