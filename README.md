@@ -2,6 +2,8 @@
 
 This is a small web app that lets you create a basic CV / Resume based on the Standford Format.
 
+Try it out: https://RowBlackGhost005.github.io/dynamic-cv-csa
+
 # Requirements
 
 1. Node
